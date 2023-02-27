@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserLogin } from "../../redux/login/actions";
+import { getCheckToken, getUserLogin } from "../../redux/login/actions";
 import Loading from "../../components/Loading";
 
 const Login = () => {
@@ -18,6 +18,13 @@ const Login = () => {
     (values) => dispatch(getUserLogin(values)),
     [dispatch]
   );
+  const checkToken = useCallback(
+    () => dispatch(getCheckToken()),
+    [dispatch]
+  );
+  useEffect(() => {
+    checkToken()
+  }, []);
   const handleSubmit = async (e) => {
     e?.preventDefault();
     userLogin({
@@ -39,6 +46,12 @@ const Login = () => {
       }
     }
   }, [response, error]);
+  useEffect(() => {
+      if (isLoggedIn) {
+        navigate("/animal");
+      }
+
+  }, [isLoggedIn]);
   return (
     <>
       <div className="wrapper">
