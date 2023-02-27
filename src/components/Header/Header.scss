@@ -1,0 +1,108 @@
+a {
+  text-decoration: none;
+}
+header {
+  background-color: black;
+  margin-bottom: 50px;
+  h1 {
+    margin-left: 50px;
+    a {
+      cursor: pointer;
+      color: orange;
+    }
+  }
+  ul {
+    display: flex;
+    font-size: 16px;
+    height: 100%;
+    margin: 0;
+    justify-content: center;
+    .clickMe{
+      color: orange;
+      a{
+        color: orange;
+      }
+    }
+    li {
+      height: 100%;
+      text-transform: uppercase;
+      line-height: 80px;
+      padding: 0 12px;
+      list-style: none;
+      cursor: pointer;
+      transition: 0.5s;
+      color: white;
+
+      a {
+        color: white;
+      }
+      &:hover {
+        text-decoration: underline red;
+      }
+    }
+  }
+  .l_logout {
+    display: none;
+  }
+  button {
+    position: relative;
+    border: none;
+    width: 100px;
+    height: 30px;
+    margin-top: 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    justify-items: center;
+    img {
+      margin-left: 8px;
+      position: absolute;
+      width: 20px;
+      top: 5px;
+    }
+  }
+  .logout {
+    &:hover {
+      background-color: orange;
+      transition: 1s;
+    }
+  }
+  .nav {
+    display: none;
+  }
+}
+@media (min-width: 1114px) {
+  .navbar {
+    display: block !important;
+  }
+}
+@media (max-width: 1113px) {
+  header {
+    .navbar {
+      //   display: block !important;
+      position: absolute;
+      width: 100%;
+      background-color: black;
+      margin-top: 80px;
+      ul {
+        display: block;
+      }
+    }
+    .l_logout {
+      display: block;
+    }
+    .logout {
+      display: none;
+    }
+    .nav {
+      display: block;
+      img {
+        right: 0;
+      }
+    }
+  }
+}
